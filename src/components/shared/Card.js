@@ -1,26 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const styles = {
   container: {
-    padding: "10px",
-    backgroundColor: "white",
-    color: "black",
-    marginRight: "20px",
-    marginBottom: "20px"
-
+    padding: '10px',
+    backgroundColor: 'white',
+    color: 'black',
+    marginRight: '20px',
+    marginBottom: '20px',
   },
   title: {
-    marginLeft: "10px",
-    marginRight: "10px"
+    marginLeft: '10px',
+    marginRight: '10px',
   },
   content: {
-    marginLeft: "10px",
-    marginRight: "10px"
-  }
-}
+    marginLeft: '10px',
+    marginRight: '10px',
+  },
+};
 
-
-const Card = ({ title, items }) => {
+const Card = ({title, items}) => {
   const [shouldShowPeople, setShouldShowPeople] = useState(false);
   const [shouldShowPlanets, setShouldShowPlanets] = useState(false);
 
@@ -29,10 +27,10 @@ const Card = ({ title, items }) => {
       <h2>{title}</h2>
       <hr />
       <div style={styles.content}>
-        {items}
+        {/*TODO: implement items handling so cards can display items */}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Card;

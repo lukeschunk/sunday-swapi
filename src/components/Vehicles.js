@@ -1,15 +1,15 @@
 import * as React from 'react';
 import ListData from 'Components/shared/ListData';
 
-const URL = 'https://swapi.co/api/planets/';
+const URL = 'https://swapi.co/api/vehicles/';
 
-class People extends React.Component {
+class Vehicles extends React.Component {
   render() {
     const styles = this.styles();
 
     return (
       <div style={styles.container}>
-        <ListData url={URL} title="Planets" back={this.props.back} />
+        <ListData url={URL} title="Vehicles" back={this.props.back} />
       </div>
     );
   }
@@ -27,4 +27,4 @@ class People extends React.Component {
   }
 }
 
-export default People;
+export default Vehicles;

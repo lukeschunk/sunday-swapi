@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import People from 'Components/People';
 import Planets from 'Components/Planets';
+import Vehicles from 'Components/Vehicles';
 
 const styles = {
   stars: {
@@ -21,40 +22,56 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
   },
   button: {
-    border: 'solid 2px #fff', 
+    border: 'solid 2px #fff',
     background: 'transparent',
     color: '#fff',
     cursor: 'pointer',
     padding: '20px',
     margin: '0px 20px 100px',
     fontSize: '18px',
-    borderRadius: '8px'
-  }
+    borderRadius: '8px',
+  },
 };
 
 const App = ({title}) => {
   const [shouldShowPeople, setShouldShowPeople] = useState(false);
   const [shouldShowPlanets, setShouldShowPlanets] = useState(false);
+  const [shouldShowVehicles, setShouldShowVehicles] = useState(false);
   const resetRouteState = () => {
     setShouldShowPeople(false);
     setShouldShowPlanets(false);
+    setShouldShowVehicles(false);
   };
 
   return (
     <div style={styles.stars}>
       <div style={styles.container}>
-      {!shouldShowPeople && !shouldShowPlanets && (
-        <>
-          <button style={styles.button} onClick={() => setShouldShowPeople(true)}>People</button>
-          <button style={styles.button} onClick={() => setShouldShowPlanets(true)}>Planets</button>
-        </>
-      )}
-      {shouldShowPeople && <People back={resetRouteState} />}
-      {shouldShowPlanets && <Planets back={resetRouteState} />}
-    </div>
+        {!shouldShowVehicles && !shouldShowPeople && !shouldShowPlanets && (
+          <>
+            <button
+              style={styles.button}
+              onClick={() => setShouldShowPeople(true)}>
+              People
+            </button>
+            <button
+              style={styles.button}
+              onClick={() => setShouldShowPlanets(true)}>
+              Planets
+            </button>
+            <button
+              style={styles.button}
+              onClick={() => setShouldShowVehicles(true)}>
+              Vehicles
+            </button>
+          </>
+        )}
+        {shouldShowPeople && <People back={resetRouteState} />}
+        {shouldShowPlanets && <Planets back={resetRouteState} />}
+        {shouldShowVehicles && <Vehicles back={resetRouteState} />}
+      </div>
     </div>
   );
 };
